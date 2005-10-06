@@ -29,7 +29,7 @@ ad_proc -public dotlrn_imsld::my_package_key {} {
 ad_proc -public dotlrn_imsld::get_pretty_name {} {
     returns the pretty name
 } {
-    return "#imsld.Applet#"
+    return "#imsld.units-of-learning#"
 }
 
 ad_proc -public dotlrn_imsld::add_applet {} {
