@@ -69,13 +69,13 @@ ad_proc -public dotlrn_imsld::add_applet_to_community {
     ns_set put $args package_id $package_id
     add_portlet_helper $portal_id $args
 
-    # intializate rels, only if they are not initialized yet (a previous 
-    # call when istantiating the applet in another community)
-    if { ![plsql_utility::object_type_exists_p imsld_community_manifest_rel] } {
-    rel_types::new imsld_community_manifest_rel "dotLRN Community - IMS LD Manifests rel" "dotLRN Community - IMS LD Manifests rels"  \
-        [acs_object::get_element -object_id $community_id -element object_type] 0 {} \
-        content_item 0 {}
-    }
+    ### Create the CR Root folder for the community
+    set cr_root_folder_id [content::folder::new -name "imsld_root_cr_folder_${community_id}" \
+                               -label "imsld_root_cr_folder_${community_id}"]
+    content::folder::register_content_type -folder_id $cr_root_folder_id -content_type content_revision -include_subtypes t
+    content::folder::register_content_type -folder_id $cr_root_folder_id -content_type content_folder -include_subtypes t
+    content::folder::register_content_type -folder_id $cr_root_folder_id -content_type content_extlink -include_subtypes t
+    content::folder::register_content_type -folder_id $cr_root_folder_id -content_type content_simlink -include_subtypes t
     
     return $package_id
 }
