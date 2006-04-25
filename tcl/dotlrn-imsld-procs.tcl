@@ -109,14 +109,14 @@ ad_proc -public dotlrn_imsld::add_user_to_community {
 } {
     Add a user to a specifc dotlrn community
 } {
-    set package_id [dotlrn_community::get_applet_package_id -community_id $community_id -applet_key [applet_key]]
-    set portal_id [dotlrn::get_portal_id -user_id $user_id]
+#     set package_id [dotlrn_community::get_applet_package_id -community_id $community_id -applet_key [applet_key]]
+#     set portal_id [dotlrn::get_portal_id -user_id $user_id]
     
-    # use "append" here since we want to aggregate
-    set args [ns_set create]
-    ns_set put $args package_id $package_id
-    ns_set put $args param_action append
-    add_portlet_helper $portal_id $args
+#     # use "append" here since we want to aggregate
+#     set args [ns_set create]
+#     ns_set put $args package_id $package_id
+#     ns_set put $args param_action append
+#     add_portlet_helper $portal_id $args
 }
 
 ad_proc -public dotlrn_imsld::remove_user_from_community {
