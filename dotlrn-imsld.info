@@ -12,7 +12,7 @@
         <release-date>2005-09-26</release-date>
 
         <provides url="dotlrn-imsld" version="0.1d"/>
-        <requires url="dotlrn" version="1.0"/>
+        <requires url="dotlrn" version="2.4.0d1"/>
         <requires url="imsld-portlet" version="0.1d"/>
 
         <callbacks>
